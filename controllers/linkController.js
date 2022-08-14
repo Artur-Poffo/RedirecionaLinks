@@ -45,4 +45,35 @@ const deleteLink = async (req, res) => {
   }
 };
 
-module.exports = { redirect, addLink, listAll, deleteLink };
+const SelectLink = async (req,res) => {
+  let id = req.params.id
+
+  try {
+    let doc = await Link.findById(id)
+    res.render("EditLink", {error: false, body: doc})
+  } catch (error) {
+    res.status(404).send(error);
+  }
+}
+
+const editLink = async (req,res) => {
+  let link = {}
+  link.title = req.body.title;
+  link.desc = req.body.desc;
+  link.url = req.body.url;
+
+  let ID = req.params.id;
+
+  if (!ID) {
+    let ID = req.body.id;
+  }
+
+  try {
+    let doc = await Link.findByIdAndUpdate(ID, link)
+    res.redirect("/")
+  } catch (error) {
+    res.render("EditLink", {error, body: req.body})
+  }
+}
+
+module.exports = { redirect, addLink, listAll, deleteLink, SelectLink, editLink };
