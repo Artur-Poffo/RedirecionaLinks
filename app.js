@@ -6,10 +6,12 @@ const path = require("path")
 
 const app = express();
 
-mongoose.connect("mongodb://localhost/Links")
-.then(db => {
-    console.log("Mongodb OK")
-}).catch(err => console.log(err))
+mongoose
+  .connect("mongodb://https://links456.herokuapp.com/Links")
+  .then((db) => {
+    console.log("Mongodb OK");
+  })
+  .catch((err) => console.log(err));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
