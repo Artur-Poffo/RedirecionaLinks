@@ -6,7 +6,14 @@ const path = require("path")
 
 const app = express();
 
-mongoose.connect("mongodb://localhost/Links")
+const options = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  family: 4, // Use IPv4, skip trying IPv6
+};
+
+mongoose.connect("mongodb://localhost/Links", options)
 .then(db => {
     console.log("Mongodb OK")
 }).catch(err => console.log(err))
