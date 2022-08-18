@@ -13,10 +13,15 @@ const options = {
   family: 4, // Use IPv4, skip trying IPv6
 };
 
-mongoose.connect("mongodb://localhost/Links", options)
-.then(db => {
-    console.log("Mongodb OK")
-}).catch(err => console.log(err))
+mongoose
+  .connect(
+    "mongodb+srv://new_user:X2FLCk4DHSYCcmNx@links.gu9y8vw.mongodb.net/?retryWrites=true&w=majority/links",
+    options
+  )
+  .then((db) => {
+    console.log("Mongodb OK");
+  })
+  .catch((err) => console.log(err));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
