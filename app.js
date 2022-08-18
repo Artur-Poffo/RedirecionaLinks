@@ -15,7 +15,7 @@ const options = {
 
 mongoose
   .connect(
-    "mongodb+srv://new_user:X2FLCk4DHSYCcmNx@links.gu9y8vw.mongodb.net/?retryWrites=true&w=majority/links",
+    "mongodb+srv://new_user:666x@links.gu9y8vw.mongodb.net/?retryWrites=true&w=majority",
     options
   )
   .then((db) => {
