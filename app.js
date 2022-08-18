@@ -6,18 +6,9 @@ const path = require("path")
 
 const app = express();
 
-const options = {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  family: 4, // Use IPv4, skip trying IPv6
-};
-
 mongoose
   .connect(
-    "mongodb+srv://new_user:666x@links.gu9y8vw.mongodb.net/?retryWrites=true&w=majority",
-    options
-  )
+    "mongodb+srv://new_user:666x@links.gu9y8vw.mongodb.net/?retryWrites=true&w=majority")
   .then((db) => {
     console.log("Mongodb OK");
   })
