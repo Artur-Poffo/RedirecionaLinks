@@ -6,13 +6,10 @@ const path = require("path")
 
 const app = express();
 
-mongoose
-  .connect(
-    "mongodb+srv://new_user:666x@links.gu9y8vw.mongodb.net/?retryWrites=true&w=majority/Links")
-  .then((db) => {
-    console.log("Mongodb OK");
-  })
-  .catch((err) => console.log(err));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/",{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
